@@ -1,0 +1,19 @@
+{
+  "name": "rcv-prod-toolkit-types",
+  "version": "1.0.0",
+  "description": "TypeScript definitions for rcv-prod-toolkit",
+  "homepage": "https://github.com/rcv-prod-toolkit/types.git",
+  "license": "MIT",
+  "main": "",
+  "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rcv-prod-toolkit/types.git"
+  },
+  "scripts": {},
+  "dependencies": {
+    "@types/cli-progress": "^3.9.2",
+    "winston": "^3.5.1"
+  },
+  "typeScriptVersion": "3.7"
+}
