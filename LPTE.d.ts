@@ -65,14 +65,10 @@ export interface LPTE {
   await: (namespace: string, type: string, timeout?: number) => Promise<LPTEvent>
 }
 
-export class Registration {
+export declare class Registration {
   type: string
   namespace: string
   handle: (event: LPTEvent) => void
 
-  constructor (namespace: string, type: string, handler: (event: LPTEvent) => void) {
-    this.namespace = namespace
-    this.type = type
-    this.handle = handler
-  }
+  constructor (namespace: string, type: string, handler: (event: LPTEvent) => void)
 }
