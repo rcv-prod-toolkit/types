@@ -32,8 +32,6 @@ jobs:
           path: ./library-files
 
       - run: ls -al
-
-      - run: ls -al
         working-directory: ./library-files
 
       - name: Publish to GitHub NPM
