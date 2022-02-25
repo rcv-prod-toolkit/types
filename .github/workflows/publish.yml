@@ -7,8 +7,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: ls -al
-
       - name: Upload Library Artifacts
         uses: actions/upload-artifact@v2
         with:
@@ -26,6 +24,12 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/')
     steps:
       - run: mkdir library-files
+
+      - name: Download Library Artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: library-files
+          path: ./library-files
 
       - run: ls -al
         working-directory: ./library-files
