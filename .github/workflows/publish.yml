@@ -23,7 +23,7 @@ jobs:
     needs: install-dependencies-build-library
     if: startsWith(github.ref, 'refs/tags/')
     steps:
-      - uses: actions/checkout@v2
+      - run: mkdir library-files
 
       - run: ls -al
         working-directory: ./library-files
