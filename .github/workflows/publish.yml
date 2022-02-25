@@ -7,6 +7,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - run: ls -al
+
       - name: Upload Library Artifacts
         uses: actions/upload-artifact@v2
         with:
