@@ -20,14 +20,23 @@ export interface ToolkitConfig {
   plugin: undefined | PluginConfig
 }
 
+export interface Asset {
+  name: string
+  type: 'plugin' | 'module' | 'theme'
+  version: string
+  download_url: string
+}
+
 export declare class Module {
   packageJson: PackageJson
   plugin: undefined | Plugin
   folder: string
+  asset?: Asset
 
   constructor (packageJson: any, folder: string)
   getName (): string
   getVersion (): string
+  getNewestVersion (): string
   getAuthor (): string
   getConfig (): ToolkitConfig
   hasMode (mode: ModuleType): boolean
