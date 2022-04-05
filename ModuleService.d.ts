@@ -1,10 +1,12 @@
-import { Module, Plugin } from './Module'
+import { Asset, Module, Plugin } from './Module'
 
 export declare class ModuleService {
   modules: Module[]
   activePlugins: Plugin[]
+  assets: Asset[]
 
   public initialize (): Promise<void>
+  public getAssets (): Promise<Asset[]>
   public getModulePath (): string
   private loadPlugins (): Promise<Plugin[]>
   private loadPlugin (module: Module): Promise<Plugin>
