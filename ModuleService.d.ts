@@ -12,4 +12,5 @@ export declare class ModuleService {
   private loadPlugin (module: Module): Promise<Plugin>
   private handleFolder (folder: string): Promise<Module | null>
   private handleModule (folder: string): Promise<Module | null>
+  private install(asset: Asset): Promise<void>
 }

@@ -8,6 +8,8 @@ export interface PackageJson {
   name: string
   version: string
   author: string
+  dependencies?: { [n: string]: string }
+  devDependencies?: { [n: string]: string }
   toolkit: ToolkitConfig
 }
 
@@ -18,6 +20,9 @@ export interface PluginConfig {
 export interface ToolkitConfig {
   modes: ModuleType[]
   plugin: undefined | PluginConfig
+  needsBuild?: boolean
+  toolkitVersion?: string
+  dependencies?: string[]
 }
 
 export interface Asset {
@@ -74,5 +79,5 @@ export declare class Plugin {
   getPluginConfig (): any
   getMain (): string
   toJson (goDeep: boolean): any
-  initialize (svc: ModuleService): void
+  initialize (): void
 }

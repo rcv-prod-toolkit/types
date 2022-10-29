@@ -27,7 +27,7 @@ export interface LPTEvent {
   meta: LPTEventMeta
 
   [name: string]: any
-  replay?: (data: {[name: string]: any}) => void
+  replay?: (data: { [name: string]: any }) => void
 }
 
 export interface LPTE {
@@ -71,5 +71,5 @@ export declare class Registration {
   namespace: string
   handle: (event: LPTEvent) => void
 
-  constructor (namespace: string, type: string, handler: (event: LPTEvent) => void)
+  constructor(namespace: string, type: string, handler: (event: LPTEvent) => void)
 }
