@@ -2,7 +2,6 @@ import { Logger } from 'winston'
 import { LPTE } from './LPTE'
 import { MultiBar } from 'cli-progress'
 import { ModuleType } from './ModuleType'
-import { ModuleService } from './ModuleService'
 
 export interface PackageJson {
   name: string
