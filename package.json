@@ -12,5 +12,5 @@
     "@types/cli-progress": "^3.9.2",
     "winston": "^3.5.1"
   },
-  "typeScriptVersion": "3.7"
+  "typeScriptVersion": "4.8"
 }
