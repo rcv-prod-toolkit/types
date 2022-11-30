@@ -1,16 +1,16 @@
-import { Asset, Module, Plugin } from './Module'
+import { Asset, ModuleInterface, PluginInterface } from './Module'
 
 export declare class ModuleService {
-  modules: Module[]
-  activePlugins: Plugin[]
+  modules: ModuleInterface[]
+  activePlugins: PluginInterface[]
   assets: Asset[]
 
   public initialize (): Promise<void>
   public getAssets (): Promise<Asset[]>
   public getModulePath (): string
   private loadPlugins (): Promise<Plugin[]>
-  private loadPlugin (module: Module): Promise<Plugin>
-  private handleFolder (folder: string): Promise<Module | null>
-  private handleModule (folder: string): Promise<Module | null>
+  private loadPlugin (module: ModuleInterface): Promise<Plugin>
+  private handleFolder (folder: string): Promise<ModuleInterface | null>
+  private handleModule (folder: string): Promise<ModuleInterface | null>
   private install(asset: Asset): Promise<void>
 }

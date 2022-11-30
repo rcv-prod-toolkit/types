@@ -31,13 +31,12 @@ export interface Asset {
   download_url: string
 }
 
-export declare class Module {
+export interface ModuleInterface {
   packageJson: PackageJson
-  plugin: undefined | Plugin
+  plugin: undefined | PluginInterface
   folder: string
   asset?: Asset
-
-  constructor (packageJson: any, folder: string)
+  updateAvailable: boolean
   getName (): string
   getVersion (): string
   getNewestVersion (): string
@@ -45,7 +44,7 @@ export declare class Module {
   getConfig (): ToolkitConfig
   hasMode (mode: ModuleType): boolean
   hasPlugin (): boolean
-  getPlugin (): Plugin | undefined
+  getPlugin (): PluginInterface | undefined
   getFolder (): string
   toJson (goDeep: boolean): any
 }
@@ -56,25 +55,20 @@ export const enum PluginStatus {
   DEGRADED = 'DEGRADED'
 }
 
-export declare class PluginContext {
+export interface PluginContextInterface {
   log: Logger
   require: (file: string) => any
   LPTE: LPTE
-  plugin: Plugin
+  plugin: PluginInterface
   progress: MultiBar
-
-  constructor (plugin: Plugin)
 }
 
-export declare class Plugin {
+export interface PluginInterface {
   isLoaded: boolean
   status: PluginStatus
-  module: Module
-  context: undefined | PluginContext
-
-  constructor (module: Module)
-
-  getModule (): Module
+  module: ModuleInterface
+  context: undefined | PluginContextInterface
+  getModule (): ModuleInterface
   getPluginConfig (): any
   getMain (): string
   toJson (goDeep: boolean): any

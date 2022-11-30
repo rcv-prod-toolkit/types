@@ -64,7 +64,11 @@ export interface LPTE {
   /**
    * Awaits until an event is emitted to the given namespace and type, or until timeout
    */
-  await: (namespace: string, type: string, timeout?: number) => Promise<LPTEvent>
+  await: (
+    namespace: string,
+    type: string,
+    timeout?: number
+  ) => Promise<LPTEvent>
 }
 
 export declare class Registration {
