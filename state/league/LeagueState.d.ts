@@ -1,5 +1,6 @@
 import { LeagueTeamType } from './LeagueTeam'
 import { LeagueTimelineType } from './LeagueTimeline'
+import { Status } from '../Status'
 
 export interface LeagueStateType {
   matchId?: string
@@ -10,9 +11,13 @@ export interface LeagueStateType {
     blue?: LeagueTeamType
     red?: LeagueTeamType
   },
-  draftType?: DraftType
-  draftTime?: number,
-  draftPhase?: string,
+  champSelect?: {
+    isActive: boolean
+    showSummoners: boolean
+    type?: DraftType
+    time?: number
+    phase?: string
+  }
 }
 
 export enum DraftType {
@@ -20,12 +25,4 @@ export enum DraftType {
   DRAFT_MODE = 'DraftModeSinglePickStrategy',
   ALL_RANDOM = 'AllRandomPickStrategy',
   TOURNAMENT_DRAFT = 'TournamentPickStrategy'
-}
-
-export enum Status {
-  OFFLINE,
-  LOBBY,
-  DRAFT,
-  INGAME,
-  POSTGAME
 }

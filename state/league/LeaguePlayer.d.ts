@@ -1,4 +1,4 @@
-import { LeaguePickBan } from './LeagueTeam'
+import { LeaguePickBanType } from './LeagueTeam'
 
 export interface LeaguePlayerType {
   summonerId: string
@@ -7,7 +7,7 @@ export interface LeaguePlayerType {
   profileIcon: number
   summonerLevel: number
   elo?: EloType
-  pick?: LeaguePickBan
+  pick?: LeaguePickBanType
   spell1?: SpellType
   spell2?: SpellType
   perks?: PerksType,

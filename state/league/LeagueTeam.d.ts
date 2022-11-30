@@ -2,9 +2,9 @@ import { LeaguePlayerType } from './LeaguePlayer'
 import { LeagueChampionType } from './LeagueChampion'
 
 export interface LeagueTeamType {
-  teamId: 100 | 200
+  teamId: 'red' | 'blue'
   players: Map<string, LeaguePlayerType>
-  bans: Array<LeaguePickBan>
+  bans: Array<LeaguePickBanType>
   objectives: {
     turrets: Array<LeagueTurretType>
     drakes: Array<LeagueDrakeType>
@@ -40,7 +40,7 @@ export interface LeagueKillType extends LeagueObjectiveType {
   victim: string
 }
 
-export interface LeaguePickBan {
+export interface LeaguePickBanType {
   champion: LeagueChampionType
   turn: number
   isComplete: boolean
