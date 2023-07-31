@@ -28,6 +28,7 @@ export interface LPTEvent {
 
   [name: string]: any
   replay?: (data: { [name: string]: any }) => void
+  reply?: (data: { [name: string]: any }) => void
 }
 
 export interface LPTE {
