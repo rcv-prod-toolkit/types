@@ -26,7 +26,7 @@ jobs:
       - run: mkdir library-files
 
       - name: Download Library Artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: library-files
           path: ./library-files
