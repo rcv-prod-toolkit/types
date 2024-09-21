@@ -1,3 +1,4 @@
+import { Answers, QuestionCollection } from 'inquirer'
 import { ModuleType } from './ModuleType'
 
 export enum EventType {
@@ -65,6 +66,16 @@ export interface LPTE {
    * Awaits until an event is emitted to the given namespace and type, or until timeout
    */
   await: (namespace: string, type: string, timeout?: number) => Promise<LPTEvent>
+
+  /**
+   * Emits a prompt in the console, and waits for a response (or until timeout)
+   * @param prompt the prompt to send
+   * @param timeout the amount of ms to wait until rejecting the promise because of timeout
+   */
+  prompt: <T extends Answers = Answers>(prompt: {
+    questions: QuestionCollection<T>
+    initialAnswers?: Partial<T> | undefined
+  }, timeout?: number) => Promise<T>
 }
 
 export declare class Registration {

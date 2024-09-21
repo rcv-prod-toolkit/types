@@ -1,6 +1,6 @@
 {
   "name": "@rcv-prod-toolkit/types",
-  "version": "1.6.1",
+  "version": "1.7.0",
   "description": "TypeScript definitions for rcv-prod-toolkit",
   "homepage": "https://github.com/rcv-prod-toolkit/types",
   "license": "MIT",
@@ -10,7 +10,8 @@
   "scripts": {},
   "dependencies": {
     "@types/cli-progress": "^3.9.2",
-    "winston": "^3.5.1"
+    "winston": "^3.5.1",
+    "inquirer": "^8.2.6"
   },
-  "typeScriptVersion": "4.8"
+  "typeScriptVersion": "5.1"
 }
