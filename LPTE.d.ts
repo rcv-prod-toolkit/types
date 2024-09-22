@@ -1,4 +1,4 @@
-import { Answers, QuestionCollection } from 'inquirer'
+import { Answers, ConfirmQuestion, QuestionCollection } from 'inquirer'
 import { ModuleType } from './ModuleType'
 
 export enum EventType {
@@ -32,14 +32,14 @@ export interface LPTEvent {
   reply?: (data: { [name: string]: any }) => void
 }
 
-export interface LPTE {
+export declare class LPTE {
   /**
    * Subscribe for events and register a callback handler
    * @param namespace
    * @param type the event type. You may use * to listen to all events in the namespace
    * @param handler the event handler method
    */
-  on: (namespace: string, type: string, handler: (e: LPTEvent) => void) => void
+  on (namespace: string, type: string, handler: (e: LPTEvent) => void): void
 
   /**
    * Clears out all event handler registrations for the symbolized namespace and type. Please note that if you pass * as type, it does not unregister all
@@ -47,39 +47,39 @@ export interface LPTE {
    * @param namespace
    * @param type the event type
    */
-  unregister: (namespace: string, type: string) => void
+  unregister (namespace: string, type: string): void
 
   /**
    * Emits an event to the event handler
    * @param event the event to emit
    */
-  emit: (event: LPTEvent) => void
+  emit (event: LPTEvent): void
 
   /**
    * Emits a request event, and waits for a response (or until timeout)
    * @param event the request event to send
    * @param timeout the amount of ms to wait until rejecting the promise because of timeout
    */
-  request: (event: LPTEvent, timeout?: number) => Promise<LPTEvent | undefined>
+  request (event: LPTEvent, timeout?: number): Promise<LPTEvent | undefined>
 
   /**
    * Awaits until an event is emitted to the given namespace and type, or until timeout
    */
-  await: (namespace: string, type: string, timeout?: number) => Promise<LPTEvent>
+  await (namespace: string, type: string, timeout?: number): Promise<LPTEvent>
 
   /**
    * Emits a prompt in the console, and waits for a response (or until timeout)
    * @param prompt the prompt to send
    * @param timeout the amount of ms to wait until rejecting the promise because of timeout
-   * @returns answer given by user or default
    */
-  prompt: (<T extends Answers = Answers>(prompt: {
+  prompt <T extends Answers = Answers>(prompt: {
     questions: QuestionCollection<T>
     initialAnswers?: Partial<T> | undefined
-  }) => Promise<T>) | (<T extends ConfirmPrompt = ConfirmPrompt>(prompt: {
-    questions: QuestionCollection<T>
+  }): Promise<T>
+  prompt <T extends Answers = Answers>(prompt: {
+    questions: ConfirmQuestion<T>
     initialAnswers?: Partial<T> | undefined
-  }, timeout: number) => Promise<T>)
+  }, timeout: number): Promise<T>
 }
 
 export declare class Registration {
