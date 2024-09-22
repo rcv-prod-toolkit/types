@@ -71,11 +71,15 @@ export interface LPTE {
    * Emits a prompt in the console, and waits for a response (or until timeout)
    * @param prompt the prompt to send
    * @param timeout the amount of ms to wait until rejecting the promise because of timeout
+   * @returns answer given by user or default
    */
-  prompt: <T extends Answers = Answers>(prompt: {
+  prompt: (<T extends Answers = Answers>(prompt: {
     questions: QuestionCollection<T>
     initialAnswers?: Partial<T> | undefined
-  }, timeout?: number) => Promise<T>
+  }) => Promise<T>) | (<T extends ConfirmPrompt = ConfirmPrompt>(prompt: {
+    questions: QuestionCollection<T>
+    initialAnswers?: Partial<T> | undefined
+  }, timeout: number) => Promise<T>)
 }
 
 export declare class Registration {
