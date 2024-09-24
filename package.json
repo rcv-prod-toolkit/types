@@ -11,7 +11,7 @@
   "dependencies": {
     "@types/cli-progress": "^3.9.2",
     "winston": "^3.5.1",
-    "inquirer": "^8.2.6"
+    "@types/inquirer": "^9.0.7"
   },
   "typeScriptVersion": "5.1"
 }
