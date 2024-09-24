@@ -1,4 +1,4 @@
-import { Answers, ConfirmQuestion, QuestionCollection } from '@types/inquirer'
+import type { Answers, ConfirmQuestion, QuestionCollection } from 'inquirer'
 import { ModuleType } from './ModuleType'
 
 export enum EventType {
